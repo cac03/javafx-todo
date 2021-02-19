@@ -4,5 +4,5 @@ module ru.hse.javafxstarter {
     requires javafx.graphics;
     requires javafx.fxml;
 
-    opens ru.hse.javafxstarter;
+    opens ru.hse.todojavafx;
 }

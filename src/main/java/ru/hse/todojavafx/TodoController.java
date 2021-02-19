@@ -1,4 +1,4 @@
-package ru.hse.javafxstarter;
+package ru.hse.todojavafx;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,11 +10,11 @@ import javafx.scene.control.TextField;
 import java.util.List;
 
 public class TodoController {
-    private static final List<String> DEFAULT_TODOS = List.of("Помыть посуду");
+    private static final List<Todo> DEFAULT_TODOS = List.of(new Todo("Помыть посуду"));
 
-    private final ObservableList<String> items = FXCollections.observableArrayList(DEFAULT_TODOS);
+    private final ObservableList<Todo> items = FXCollections.observableArrayList(DEFAULT_TODOS);
     @FXML
-    private ListView<String> listView;
+    private ListView<Todo> listView;
     @FXML
     private TextField newTodoTextField;
     @FXML
@@ -38,6 +38,6 @@ public class TodoController {
     @FXML
     private void onAddClicked() {
         String text = newTodoTextField.textProperty().get();
-        items.add(text);
+        items.add(new Todo(text));
     }
 }

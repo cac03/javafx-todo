@@ -1,4 +1,4 @@
-package ru.hse.javafxstarter;
+package ru.hse.todojavafx;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class StarterApplication extends Application {
+public class TodoApplication extends Application {
     private static final String TITLE = "ToDo application";
 
     @Override
@@ -33,6 +33,6 @@ public class StarterApplication extends Application {
     }
 
     public static void main(String[] args) {
-        Application.launch(StarterApplication.class, args);
+        Application.launch(TodoApplication.class, args);
     }
 }
