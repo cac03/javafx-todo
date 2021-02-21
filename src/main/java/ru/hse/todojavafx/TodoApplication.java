@@ -9,6 +9,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * Не запускайте {@code main} из этого класса!
+ * Делайте это через {@link Main}
+ */
 public class TodoApplication extends Application {
     /**
      * Путь к fxml файлу, он - в директории resources
@@ -43,9 +47,5 @@ public class TodoApplication extends Application {
         } catch (IOException e) {
             throw new IllegalStateException(e);
         }
-    }
-
-    public static void main(String[] args) {
-        Application.launch(TodoApplication.class, args);
     }
 }
