@@ -1,29 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!--
+    См. https://fxdocs.github.io/docs/html5/ - неофициальная документация JavaFX
+-->
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <VBox prefHeight="400.0" prefWidth="600.0" spacing="8.0" xmlns="http://javafx.com/javafx/11.0.1"
       xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.hse.todojavafx.TodoController">
-    <HBox>
-        <HBox HBox.hgrow="ALWAYS">
-            <TextField promptText="Your todo:" fx:id="newTodoTextField">
-                <HBox.margin>
-                    <Insets right="16.0"/>
-                </HBox.margin>
-            </TextField>
-        </HBox>
-        <Button text="Add" onMouseClicked="#onAddClicked" fx:id="addButton"/>
-    </HBox>
+    <!--
+        VBox - вертикальный ящик. Он раскладывает элементы вертикально друг под другом.
+        Расстояние между элементами - 8 (между кнопками и списком)
 
-    <ListView fx:id="listView" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS"
-              onMouseClicked="#onMouseClicked"/>
+        В fx:controller указано имя класса, являющееся контроллером (объектом, который может содержать
+        определенную логику) к данному fxml
+
+        См. https://fxdocs.github.io/docs/html5/#_vbox_and_hbox
+    -->
+
+    <!--
+        AnchorPane позволяет "прицепить" элементы к разным сторонам: к верхней, нижней, левой правой.
+        Соответствует блоку из текстового поля и кнопки добавления.
+    -->
+    <AnchorPane>
+        <!--
+            Текстовое поле для добавления задачи.
+            См. поле newTodoTextField в TodoController
+
+            Атрибуты "AnchorPane.leftAnchor" и "AnchorPane.topAnchor" просят родителя (AnchorPane) разместить это
+            поле сверху слева.
+        -->
+        <TextField promptText="Your todo:" fx:id="newTodoTextField" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0"
+                   minWidth="200"/>
+        <!--
+            Кнопка добавления задачи в список.
+            См. поле addButton в TodoController
+
+            Атрибуты "AnchorPane.rightAnchor" и "AnchorPane.topAnchor" просят родителя (AnchorPane) разместить кнопку сверху справа
+
+            При нажатии на кнопку будет вызван метод onAddClicked в TodoController
+        -->
+        <Button text="Add" onMouseClicked="#onAddClicked" fx:id="addButton" AnchorPane.rightAnchor="0"
+                AnchorPane.bottomAnchor="0"/>
+    </AnchorPane>
+
+    <!--
+        Список задач.
+        См. поле listView в TodoController.
+
+        При нажатии на него вызывается метод onItemClicked в TodoController
+    -->
+    <ListView fx:id="listView" VBox.vgrow="ALWAYS" onMouseClicked="#onItemClicked"/>
+    <!-- Внутренние границы -->
     <padding>
         <Insets bottom="16.0" left="16.0" right="16.0" top="16.0"/>
     </padding>
-
 
 </VBox>

@@ -1,4 +1,4 @@
-module ru.hse.javafxstarter {
+module ru.hse.todojavafx {
     requires javafx.base;
     requires javafx.controls;
     requires javafx.graphics;
