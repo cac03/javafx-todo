@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <VBox prefHeight="400.0" prefWidth="600.0" spacing="8.0" xmlns="http://javafx.com/javafx/11.0.1"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.hse.todojavafx.TodoController">
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.hse.todojavafx.ui.TodoController">
     <!--
         VBox - вертикальный ящик. Он раскладывает элементы вертикально друг под другом.
         Расстояние между элементами - 8 (между кнопками и списком)

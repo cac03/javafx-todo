@@ -1,4 +1,4 @@
-package ru.hse.todojavafx;
+package ru.hse.todojavafx.util;
 
 import java.util.function.Supplier;
 

@@ -1,4 +1,6 @@
-package ru.hse.todojavafx;
+package ru.hse.todojavafx.domain;
+
+import ru.hse.todojavafx.util.Assert;
 
 public class Todo {
     private final String text;

@@ -7,7 +7,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 /**
  * Не запускайте {@code main} из этого класса!
@@ -42,8 +41,9 @@ public class TodoApplication extends Application {
      * @throws IllegalStateException если произошла ошибка ввода-вывода
      */
     private VBox loadLayout(FXMLLoader loader) {
-        try (InputStream inputStream = getClass().getResourceAsStream(FXML_FILE_PATH)) {
-            return loader.load(inputStream);
+        try {
+            loader.setLocation(getClass().getResource(FXML_FILE_PATH));
+            return loader.load();
         } catch (IOException e) {
             throw new IllegalStateException(e);
         }
