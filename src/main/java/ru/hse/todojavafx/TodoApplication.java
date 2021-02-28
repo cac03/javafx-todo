@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import ru.hse.todojavafx.domain.InMemoryTodoRepository;
+import ru.hse.todojavafx.ui.TodoController;
 
 import java.io.IOException;
 
@@ -22,6 +24,7 @@ public class TodoApplication extends Application {
     @Override
     public void start(Stage primaryStage) {
         FXMLLoader loader = new FXMLLoader();
+        loader.setController(new TodoController(new InMemoryTodoRepository()));
         VBox root = loadLayout(loader);
         primaryStage.setScene(new Scene(root));
 

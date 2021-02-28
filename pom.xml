@@ -13,6 +13,7 @@
         <maven.compiler.target>11</maven.compiler.target>
         <javafx.version>11.0.2</javafx.version>
         <javafx-maven-plugin.version>0.0.5</javafx-maven-plugin.version>
+        <junit-jupiter.version>5.7.1</junit-jupiter.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-shade-plugin.version>3.2.1</maven-shade-plugin.version>
 
@@ -99,6 +100,13 @@
             <artifactId>javafx-graphics</artifactId>
             <version>${javafx.version}</version>
             <classifier>mac</classifier>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit-jupiter.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

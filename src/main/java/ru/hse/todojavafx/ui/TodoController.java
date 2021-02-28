@@ -7,8 +7,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import ru.hse.todojavafx.domain.Todo;
-
-import java.util.List;
+import ru.hse.todojavafx.domain.TodoRepository;
+import ru.hse.todojavafx.logging.Logger;
+import ru.hse.todojavafx.util.Assert;
 
 /**
  * Данный класс - JavaFx controller.
@@ -21,9 +22,9 @@ import java.util.List;
  * 2. Вызов методов при определенных действиях, см {@link TodoController#onAddClicked()}, {@link TodoController#onItemClicked()}
  */
 public class TodoController {
-    private static final List<Todo> DEFAULT_TODOS = List.of(new Todo("Помыть посуду"));
+    private static final Logger logger = Logger.forClass(TodoController.class);
 
-    private final ObservableList<Todo> items = FXCollections.observableArrayList(DEFAULT_TODOS);
+    private final ObservableList<Todo> items = FXCollections.observableArrayList();
     // Соответствует ListView в fxml, см. атрибут fx:id
     @FXML
     private ListView<Todo> listView;
@@ -31,6 +32,12 @@ public class TodoController {
     private TextField newTodoTextField;
     @FXML
     private Button addButton;
+    private final TodoRepository todoRepository;
+
+    public TodoController(TodoRepository todoRepository) {
+        Assert.notNull(todoRepository, "todoRepository == null");
+        this.todoRepository = todoRepository;
+    }
 
     /**
      * Данный метод инициализирует view.
@@ -58,8 +65,12 @@ public class TodoController {
     @FXML
     private void onItemClicked() {
         // Просто удаляем выбранный элемент
-        ObservableList<Todo> selectedItems = listView.getSelectionModel().getSelectedItems();
-        items.removeAll(selectedItems);
+        Todo selectedItem = listView.getSelectionModel().getSelectedItem();
+        if (selectedItem == null) {
+            return;
+        }
+        todoRepository.deleteById(selectedItem.getId());
+        items.remove(selectedItem);
     }
 
     /**
@@ -67,8 +78,11 @@ public class TodoController {
      */
     @FXML
     private void onAddClicked() {
+        logger.trace("onAddClicked, textProperty = %s", newTodoTextField.textProperty());
         // Добавляем задачу в список
         String text = newTodoTextField.textProperty().getValue();
-        items.add(new Todo(text));
+        Todo todo = new Todo(text);
+        items.add(todo);
+        todoRepository.save(todo);
     }
 }
