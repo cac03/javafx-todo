@@ -12,7 +12,7 @@ public final class Logger {
     }
 
     public static Logger forClass(Class<?> clazz) {
-        Assert.notNull(clazz, () -> "clazz == null");
+        Assert.notNull(clazz, "clazz == null");
         return new Logger(clazz.getSimpleName());
     }
 

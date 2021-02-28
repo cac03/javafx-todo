@@ -42,6 +42,20 @@ public final class Assert {
     }
 
     /**
+     * Проверить, что {@code o != null}.
+     * Если {@code o == null}, то будет выброшен {@link IllegalArgumentException}.
+     *
+     * @param o       который нужно проверить на {@code null}
+     * @param message сообщение для исключения, может быть {@code null}
+     * @throws IllegalArgumentException если {@code o == null}
+     */
+    public static void notNull(Object o, String message) {
+        if (o == null) {
+            throw new IllegalArgumentException(message);
+        }
+    }
+
+    /**
      * Проверить условие, выраженное через boolean значение.
      * Если условие - {@code false}, то будет выброшен {@link IllegalArgumentException}
      * <p>
