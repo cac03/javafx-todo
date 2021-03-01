@@ -7,7 +7,7 @@ public class Todo {
 
     public Todo(String text) {
         Assert.notNull(text, "text == null");
-        Assert.isTrue(!text.isBlank(), () -> "text is blank");
+        Assert.isTrue(!text.isEmpty(), () -> "text is empty");
         this.text = text;
     }
 

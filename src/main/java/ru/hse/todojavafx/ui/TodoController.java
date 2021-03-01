@@ -44,14 +44,10 @@ public class TodoController {
         listView.setItems(items);
         // Отключаем кнопку добавления при запуске
         addButton.setDisable(true);
-        newTodoTextField.textProperty()
-                .addListener((observable, oldValue, newValue) ->
-                        // При изменении значения в текстовом поле включаем или отключаем кнопку
-                        // добавления.
-                        // "" -> кнопка отключена
-                        // "   " -> тоже
-                        // "что-то" -> включена
-                        addButton.setDisable(newValue.isBlank()));
+
+        // Если введенный текст пуст, то отключаем кнопку добавления
+        addButton.disableProperty()
+                .bind(newTodoTextField.textProperty().isEmpty());
         // Если это не сделать, то при запуске курсор будет в поле ввода
         newTodoTextField.setFocusTraversable(false);
     }
