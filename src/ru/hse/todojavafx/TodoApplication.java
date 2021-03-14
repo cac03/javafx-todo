@@ -8,10 +8,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-/**
- * Не запускайте {@code main} из этого класса!
- * Делайте это через {@link Main}
- */
 public class TodoApplication extends Application {
     /**
      * Путь к fxml файлу, он - в директории resources
