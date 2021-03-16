@@ -33,5 +33,5 @@ image::demo.gif[]
 
 [source,bash]
 ----
-$ java -jar target/javafx-todoapp-1.0-SNAPSHOT.jar
+$ java -cp target/javafx-todoapp-1.0-SNAPSHOT.jar:*путь до javafx-sdk/lib/* ru.hse.todojavafx.Main
 ----
