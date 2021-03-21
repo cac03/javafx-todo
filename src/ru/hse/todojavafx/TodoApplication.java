@@ -44,4 +44,8 @@ public class TodoApplication extends Application {
             throw new IllegalStateException(e);
         }
     }
+
+    public static void main(String[] args) {
+        Application.launch(args);
+    }
 }
