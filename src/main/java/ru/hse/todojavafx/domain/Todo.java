@@ -2,18 +2,10 @@ package ru.hse.todojavafx.domain;
 
 import ru.hse.todojavafx.util.Assert;
 
-public class Todo {
-    private final String text;
-
-    public Todo(String text) {
+public record Todo(String text) {
+    public Todo {
         Assert.notNull(text, "text == null");
         Assert.isTrue(!text.isEmpty(), () -> "text is empty");
-        this.text = text;
-    }
-
-    @SuppressWarnings("unused")
-    public String getText() {
-        return text;
     }
 
     @Override

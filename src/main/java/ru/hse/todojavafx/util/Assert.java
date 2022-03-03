@@ -31,7 +31,7 @@ public final class Assert {
      * Проверить, что {@code o != null}.
      * Если {@code o == null}, то будет выброшен {@link IllegalArgumentException}.
      *
-     * @param o               который нужно проверить на {@code null}
+     * @param o который нужно проверить на {@code null}
      * @param messageSupplier поставщик сообщения для исключения, может быть {@code null}
      * @throws IllegalArgumentException если {@code o == null}
      */
@@ -45,7 +45,7 @@ public final class Assert {
      * Проверить, что {@code o != null}.
      * Если {@code o == null}, то будет выброшен {@link IllegalArgumentException}.
      *
-     * @param o       который нужно проверить на {@code null}
+     * @param o который нужно проверить на {@code null}
      * @param message сообщение для исключения, может быть {@code null}
      * @throws IllegalArgumentException если {@code o == null}
      */
@@ -64,7 +64,7 @@ public final class Assert {
      *     Assert.isTrue(1 < 2, () -> "Arithmetic is broken");
      * </pre>
      *
-     * @param condition       для проверки
+     * @param condition для проверки
      * @param messageSupplier поставщик сообщения для исключения
      * @throws IllegalArgumentException если {@code condition == true}
      */
@@ -78,7 +78,7 @@ public final class Assert {
      * Проверить состояние, выраженное через значение boolean значение.
      * Если оно - {@code false}, то будет выброшен {@link IllegalStateException}
      *
-     * @param state           для проверки
+     * @param state для проверки
      * @param messageSupplier поставщик сообщения для исключения, может быть {@code null}
      * @throws IllegalStateException если {@code state == false}
      */
